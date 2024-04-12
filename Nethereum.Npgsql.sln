@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.EntityFrameworkCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.Npgsql.Test", "Nethereum.Npgsql.Test\Nethereum.Npgsql.Test.csproj", "{D0B81FBA-396B-4F2E-ACFD-2334C5433425}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{681933F5-523A-45A0-81F1-5A5E7333E3D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{D0B81FBA-396B-4F2E-ACFD-2334C5433425}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0B81FBA-396B-4F2E-ACFD-2334C5433425}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0B81FBA-396B-4F2E-ACFD-2334C5433425}.Release|Any CPU.Build.0 = Release|Any CPU
+		{681933F5-523A-45A0-81F1-5A5E7333E3D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{681933F5-523A-45A0-81F1-5A5E7333E3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{681933F5-523A-45A0-81F1-5A5E7333E3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{681933F5-523A-45A0-81F1-5A5E7333E3D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
