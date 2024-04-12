@@ -42,11 +42,11 @@ public class BigDecimalDriverTests
 
         {
             var numeric = BigDecimalConverter.BigDecimalToPgSql(bigDecimal);
-            Assert.AreEqual(len, numeric.digits.Count, "Len dosen't match");
-            Assert.AreEqual(weight, numeric.weight, "weight does not match");
-            Assert.AreEqual(0, numeric.sign, "Sign does not match");
-            Assert.AreEqual(scale, numeric.scale, "Scale does not match");
-            CollectionAssert.AreEqual(digits, numeric.digits, "Digits does not match");
+            Assert.AreEqual(len, numeric.digits.Count, "Len does not match.");
+            Assert.AreEqual(weight, numeric.weight, "Weight does not match.");
+            Assert.AreEqual(0, numeric.sign, "Sign does not match.");
+            Assert.AreEqual(scale, numeric.scale, "Scale does not match.");
+            CollectionAssert.AreEqual(digits, numeric.digits, "Digits does not match.");
         }
 
         // negative value test, pretty much the same number but negative
@@ -55,11 +55,11 @@ public class BigDecimalDriverTests
         {
             var negativeTest = -bigDecimal;
             var numeric = BigDecimalConverter.BigDecimalToPgSql(negativeTest);
-            Assert.AreEqual(len, numeric.digits.Count, "Len dosen't match");
-            Assert.AreEqual(weight, numeric.weight, "weight does not match");
-            Assert.AreEqual(BigDecimalConverter.SignNegative, numeric.sign, "Sign does not match");
-            Assert.AreEqual(scale, numeric.scale, "Scale does not match");
-            CollectionAssert.AreEqual(digits, numeric.digits, "Digits does not match");
+            Assert.AreEqual(len, numeric.digits.Count, "Len does not match.");
+            Assert.AreEqual(weight, numeric.weight, "Weight does not match.");
+            Assert.AreEqual(BigDecimalConverter.SignNegative, numeric.sign, "Sign does not match.");
+            Assert.AreEqual(scale, numeric.scale, "Scale does not match.");
+            CollectionAssert.AreEqual(digits, numeric.digits, "Digits does not match.");
         }
     }
 
