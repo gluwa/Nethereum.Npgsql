@@ -26,62 +26,38 @@ var serviceProvider = services.BuildServiceProvider();
 var scope = serviceProvider.CreateScope();
 var numberContext = scope.ServiceProvider.GetRequiredService<NumberContext>();
 
-var numbers = new List<BigDecimal>() {
-    BigDecimal.Parse("0"),
-    BigDecimal.Parse("1"),
-    BigDecimal.Parse("0.1"),
-    BigDecimal.Parse("0.01"),
-    BigDecimal.Parse("0.001"),
-    BigDecimal.Parse("0.0001"),
-    BigDecimal.Parse("0.00001"),
-    BigDecimal.Parse("0.00001"),
-    BigDecimal.Parse("0.000001"),
-    BigDecimal.Parse("0.0000001"),
-    BigDecimal.Parse("0.00000001"),
-    BigDecimal.Parse("0.000000001"),
-    BigDecimal.Parse("0.0000000001"),
-    BigDecimal.Parse("0.00000000001"),
-    BigDecimal.Parse("-0.1"),
-    BigDecimal.Parse("-0.01"),
-    BigDecimal.Parse("-0.001"),
-    BigDecimal.Parse("-0.0001"),
-    BigDecimal.Parse("-0.00001"),
-    BigDecimal.Parse("-0.00001"),
-    BigDecimal.Parse("-0.000001"),
-    BigDecimal.Parse("-0.0000001"),
-    BigDecimal.Parse("-0.00000001"),
-    BigDecimal.Parse("-0.000000001"),
-    BigDecimal.Parse("-0.0000000001"),
-    BigDecimal.Parse("-0.00000000001"),
-    BigDecimal.Parse("1.1"),
-    BigDecimal.Parse("11.11"),
-    BigDecimal.Parse("111.111"),
-    BigDecimal.Parse("1111.1111"),
-    BigDecimal.Parse("11111.11111"),
-    BigDecimal.Parse("111111.111111"),
-    BigDecimal.Parse("1111111.1111111"),
-    BigDecimal.Parse("11111111.11111111"),
-    BigDecimal.Parse("111111111.111111111"),
-    BigDecimal.Parse("1111111111.1111111111"),
-    BigDecimal.Parse("11111111111.11111111111"),
-    BigDecimal.Parse("111111111111.111111111111"),
-    BigDecimal.Parse("1111111111111.1111111111111"),
-    BigDecimal.Parse("11111111111111.11111111111111"),
-    BigDecimal.Parse("111111111111111.111111111111111"),
-    BigDecimal.Parse("1111111111111111.1111111111111111"),
-    BigDecimal.Parse("11111111111111111.11111111111111111"),
-    BigDecimal.Parse("111111111111111111.111111111111111111"),
-    BigDecimal.Parse("100000000000000000000000000000000000000000000000000000000000000"),
-    BigDecimal.Parse("100000000000000000000000000000000000000000000000000000000000000.12321323131313131232131312312")
-};
+var numbers = new List<BigDecimal>();
+for(var i = 0 ; i < 76; i++) {
+
+    BigDecimal number;
+    if (i == 0)
+        number = new BigDecimal(0);
+    else if (i == 1)
+        number = new BigDecimal(1);
+    else
+    {
+        var left = new string('1', i-1);
+        var right = new string('1', i-1);
+        number = BigDecimal.Parse(left + "." + right);
+    }
+
+    numbers.Add(number);
+}
 
 var toAdd = numbers.Select(t => new Number {
     LargeNumber = t
 }).ToList();
 
 await numberContext.Numbers.ExecuteDeleteAsync();
-numberContext.Numbers.AddRange(toAdd);
-await numberContext.SaveChangesAsync();
+
+// batch a certain amount of records at once.
+var pager = 50;
+var numberOfPages = toAdd.Count/pager + (toAdd.Count%pager == 0 ? 0 : 1);
+for(var i = 0 ; i < numberOfPages; i++) {
+    var subset = toAdd.Skip(i*pager).Take(pager).ToList();
+    numberContext.Numbers.AddRange(subset);
+    await numberContext.SaveChangesAsync();
+}
 
 var afterAdded = await numberContext.Numbers.ToListAsync();
 if (afterAdded.Count != numbers.Count)
