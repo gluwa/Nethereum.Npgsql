@@ -14,7 +14,7 @@
     <PackageIconUrl>https://www.nuget.org/profiles/Gluwa/avatar?imageSize=64</PackageIconUrl>
     <Product>Gluwa.Nethereum.Npgsql</Product>
     <Description>Driver for BigDecimal of Nethereum by Gluwa</Description>
-    <PackageId>Gluwa.Nethereum.Npgsql.EntityFramework.Core</PackageId>
+    <PackageId>Gluwa.Nethereum.Npgsql.EntityFrameworkCore</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Nethereum.Util" Version="4.20.0" />
