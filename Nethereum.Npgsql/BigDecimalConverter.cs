@@ -7,7 +7,7 @@ namespace Nethereum.Npgsql;
 public sealed class BigDecimalConverter : PgBufferedConverter<Nethereum.Util.BigDecimal>
 {
     private static BigInteger BI_MAX_LONG = new BigInteger(long.MaxValue);
-    private static BigInteger BI_TEN_THOUSAND = new BigInteger(10000);
+    private static BigInteger BI_TEN_THOUSAND = new BigInteger(10_000);
 
     const int StackAllocByteThreshold = 256 * sizeof(uint);
 
@@ -49,7 +49,7 @@ public sealed class BigDecimalConverter : PgBufferedConverter<Nethereum.Util.Big
         if (sign is SignPinf)
             throw new InvalidCastException("Numeric Infinity not supported by BigDecimal");
         if (sign is SignNinf)
-            throw new InvalidCastException("Numeric -Infinity not supported by System.Decimal");
+            throw new InvalidCastException("Numeric -Infinity not supported by BigDecimal");
 
         // Convert digits to BigInteger
         BigInteger mantissa = BigInteger.Zero;
@@ -58,7 +58,7 @@ public sealed class BigDecimalConverter : PgBufferedConverter<Nethereum.Util.Big
         {
             BigInteger digitValue = digits[i] * baseMultiplier;
             mantissa += digitValue;
-            baseMultiplier *= new BigInteger(10_000); // Increase the base multiplier for the next digit
+            baseMultiplier *= BI_TEN_THOUSAND; // Increase the base multiplier for the next digit
         }
 
         // Adjust sign

@@ -6,8 +6,8 @@ namespace Nethereum.Npgsql;
 
 internal class BigDecimalTypeInfoResolverFactory : PgTypeInfoResolverFactory
 {
-    public override IPgTypeInfoResolver? CreateArrayResolver() => new Resolver();
-    public override IPgTypeInfoResolver CreateResolver() => new ArrayResolver();
+    public override IPgTypeInfoResolver? CreateArrayResolver() => new ArrayResolver();
+    public override IPgTypeInfoResolver CreateResolver() => new Resolver();
 
     class Resolver : IPgTypeInfoResolver
     {
