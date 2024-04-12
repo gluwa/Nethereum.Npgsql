@@ -1,0 +1,33 @@
+trigger:
+- refs/tags/sdk/*
+pr: none
+
+steps:
+- script: |
+    export tag=$(git describe --tag)
+    export tag=$(echo $tag | sed 's/sdk\///')
+    echo "Using Tag: $tag"
+    echo "##vso[task.setvariable variable=GITTAG;]$tag"
+  displayName: Get tag
+
+- task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: 'restore'
+    projects: |
+      **/*.csproj
+    feedsToUse: 'select'
+
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    command: 'build'
+    projects: |
+      **/*.csproj
+
+- task: DotNetCoreCLI@2
+  displayName: Test
+  inputs:
+    command: 'test'
+    projects: |
+      **/*.Test.csproj
