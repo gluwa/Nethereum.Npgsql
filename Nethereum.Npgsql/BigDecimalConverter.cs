@@ -11,11 +11,11 @@ public sealed class BigDecimalConverter : PgBufferedConverter<Nethereum.Util.Big
 
     const int StackAllocByteThreshold = 256 * sizeof(uint);
 
-    const ushort SignPositive = 0x0000;
-    const ushort SignNegative = 0x4000;
-    const ushort SignNan = 0xC000;
-    const ushort SignPinf = 0xD000;
-    const ushort SignNinf = 0xF000;
+    public const ushort SignPositive = 0x0000;
+    public const ushort SignNegative = 0x4000;
+    public const ushort SignNan = 0xC000;
+    public const ushort SignPinf = 0xD000;
+    public const ushort SignNinf = 0xF000;
 
     const int BytesUpperBound = (sizeof(short) * 4) + (sizeof(short) * 20);
 
