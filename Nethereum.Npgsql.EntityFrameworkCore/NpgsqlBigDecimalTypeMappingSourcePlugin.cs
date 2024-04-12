@@ -2,7 +2,7 @@ using System.Collections.Concurrent;
 using Microsoft.EntityFrameworkCore.Storage;
 using Nethereum.Util;
 
-namespace Nethereum.Postgres.EntityFrameworkCore;
+namespace Nethereum.Npgsql.EntityFrameworkCore;
 
 /// <summary>
 ///     This is an internal API that supports the Entity Framework Core infrastructure and not subject to

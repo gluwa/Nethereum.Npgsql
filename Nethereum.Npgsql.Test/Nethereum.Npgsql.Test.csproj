@@ -16,6 +16,6 @@
     <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Nethereum.Postgres.Npgsql\Nethereum.Postgres.Npgsql.csproj" />
+    <ProjectReference Include="..\Nethereum.Npgsql\Nethereum.Npgsql.csproj" />
   </ItemGroup>
 </Project>

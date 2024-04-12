@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Infrastructure;
 using Npgsql;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Infrastructure;
-using Nethereum.Postgres.Npgsql;
 
-namespace Nethereum.Postgres.EntityFrameworkCore;
+namespace Nethereum.Npgsql.EntityFrameworkCore;
 
 public static class NpgsqlBigDecimalDbContextOptionsBuilderExtensions
 {

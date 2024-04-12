@@ -4,7 +4,7 @@ using Nethereum.Util;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.Mapping;
 using NpgsqlTypes;
 
-namespace Nethereum.Postgres.EntityFrameworkCore;
+namespace Nethereum.Npgsql.EntityFrameworkCore;
 
 /// <summary>
 ///     This is an internal API that supports the Entity Framework Core infrastructure and not subject to

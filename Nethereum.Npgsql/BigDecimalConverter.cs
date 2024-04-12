@@ -2,7 +2,7 @@
 using Nethereum.Util;
 using Npgsql.Internal;
 
-namespace Nethereum.Postgres.Npgsql;
+namespace Nethereum.Npgsql;
 
 public sealed class BigDecimalConverter : PgBufferedConverter<Nethereum.Util.BigDecimal>
 {

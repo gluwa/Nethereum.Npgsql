@@ -1,6 +1,6 @@
 using Nethereum.Util;
 
-namespace Nethereum.Postgres.Npgsql.Test;
+namespace Nethereum.Npgsql.Test;
 
 [TestClass]
 public class BigDecimalDriverTests

@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Nethereum.Postgres.EntityFrameworkCore;
+namespace Nethereum.Npgsql.EntityFrameworkCore;
 
 
 public static class NpgsqlBigDecimalServiceCollectionExtensions

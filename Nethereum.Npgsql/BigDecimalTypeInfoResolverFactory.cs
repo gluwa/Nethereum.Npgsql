@@ -2,7 +2,7 @@ using Nethereum.Util;
 using Npgsql.Internal;
 using Npgsql.Internal.Postgres;
 
-namespace Nethereum.Postgres.Npgsql;
+namespace Nethereum.Npgsql;
 
 internal class BigDecimalTypeInfoResolverFactory : PgTypeInfoResolverFactory
 {

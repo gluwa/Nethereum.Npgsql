@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.Postgres.Npgsql", "Nethereum.Postgres.Npgsql\Nethereum.Postgres.Npgsql.csproj", "{920A45ED-90DF-4A34-A7DA-5B4EEEE84030}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.Npgsql", "Nethereum.Npgsql\Nethereum.Npgsql.csproj", "{920A45ED-90DF-4A34-A7DA-5B4EEEE84030}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.Postgres.EntityFrameworkCore", "Nethereum.Postgres.EntityFrameworkCore\Nethereum.Postgres.EntityFrameworkCore.csproj", "{38DD1A2C-9FF7-4036-8931-3455B1C76DC1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.EntityFrameworkCore", "Nethereum.Npgsql.EntityFrameworkCore\Nethereum.Npgsql.EntityFrameworkCore.csproj", "{38DD1A2C-9FF7-4036-8931-3455B1C76DC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.Postgres.Npgsql.Test", "Nethereum.Postgres.Npgsql.Test\Nethereum.Postgres.Npgsql.Test.csproj", "{D0B81FBA-396B-4F2E-ACFD-2334C5433425}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.Npgsql.Test", "Nethereum.Npgsql.Test\Nethereum.Npgsql.Test.csproj", "{D0B81FBA-396B-4F2E-ACFD-2334C5433425}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

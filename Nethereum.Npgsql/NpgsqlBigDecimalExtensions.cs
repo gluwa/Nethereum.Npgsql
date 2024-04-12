@@ -1,6 +1,6 @@
 using Npgsql.TypeMapping;
 
-namespace Nethereum.Postgres.Npgsql;
+namespace Nethereum.Npgsql;
 
 public static class NpgsqlBigDecimalExtensions
 {
