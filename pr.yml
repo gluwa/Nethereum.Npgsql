@@ -1,6 +1,4 @@
-trigger:
-- refs/tags/sdk/*
-pr: none
+trigger: none
 
 steps:
 - script: |
