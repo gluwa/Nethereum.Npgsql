@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.Postgres.Npgsql", "Nethereum.Postgres.Npgsql\Nethereum.Postgres.Npgsql.csproj", "{920A45ED-90DF-4A34-A7DA-5B4EEEE84030}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.Postgres.EntityFrameworkCore", "Nethereum.Postgres.EntityFrameworkCore\Nethereum.Postgres.EntityFrameworkCore.csproj", "{38DD1A2C-9FF7-4036-8931-3455B1C76DC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.Postgres.Npgsql.Test", "Nethereum.Postgres.Npgsql.Test\Nethereum.Postgres.Npgsql.Test.csproj", "{D0B81FBA-396B-4F2E-ACFD-2334C5433425}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{920A45ED-90DF-4A34-A7DA-5B4EEEE84030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{920A45ED-90DF-4A34-A7DA-5B4EEEE84030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{920A45ED-90DF-4A34-A7DA-5B4EEEE84030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{920A45ED-90DF-4A34-A7DA-5B4EEEE84030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38DD1A2C-9FF7-4036-8931-3455B1C76DC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38DD1A2C-9FF7-4036-8931-3455B1C76DC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38DD1A2C-9FF7-4036-8931-3455B1C76DC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38DD1A2C-9FF7-4036-8931-3455B1C76DC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0B81FBA-396B-4F2E-ACFD-2334C5433425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B81FBA-396B-4F2E-ACFD-2334C5433425}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0B81FBA-396B-4F2E-ACFD-2334C5433425}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0B81FBA-396B-4F2E-ACFD-2334C5433425}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
