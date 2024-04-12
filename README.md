@@ -1,0 +1,10 @@
+# Description
+
+The goal of the project is to implement the Postgres driver part to support Nethereum's BigDecimal. This involves persisting BigDecimal in Postgres using the Postgres C# driver. Additionally, the project adds support to Entity Framework Core for Postgres. David Lebee and Quang Minh Dinh are working on this implementation.
+
+# Getting started
+
+Full Version                  | NuGet                                                                                                                                                                                                                                                                 |                                           NuGet Install
+------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------:
+Gluwa.Nethereum.Npgsql      | <a href="https://www.nuget.org/packages/Gluwa.Nethereum.Npgsql/" target="_blank">[![NuGet](https://img.shields.io/nuget/v/Gluwa.Nethereum.Npgsql.svg?style=flat-square&label=nuget)](https://www.nuget.org/packages/Gluwa.Nethereum.Npgsql)</a>                |      ```PM> Install-Package Gluwa.Nethereum.Npgsql```
+Gluwa.Nethereum.Npgsql.EntityFrameworkCore | <a href="https://www.nuget.org/packages/Gluwa.Nethereum.Npgsql.EntityFrameworkCore/" target="_blank">[![NuGet](https://img.shields.io/nuget/v/Gluwa.Nethereum.Npgsql.EntityFrameworkCore.svg?style=flat-square&label=nuget)](https://www.nuget.org/packages/Gluwa.Nethereum.Npgsql.EntityFrameworkCore/)</a> | ```PM> Install-Package Gluwa.Nethereum.Npgsql.EntityFrameworkCore```
