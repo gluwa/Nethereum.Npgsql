@@ -3,6 +3,18 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <Copyright>Gluwa Inc.</Copyright>
+    <Company>Gluwa Inc.</Company>
+    <Authors>Gluwa's Backend Team</Authors>
+    <PackageLicenseUrl>https://github.com/Gluwa/Nethereum.Npgsql/blob/main/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Gluwa/Nethereum.Npgsql</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Gluwa/Nethereum.Npgsql</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <PackageIconUrl>https://www.nuget.org/profiles/Gluwa/avatar?imageSize=64</PackageIconUrl>
+    <Product>Gluwa.Nethereum.Npgsql</Product>
+    <Description>Driver for BigDecimal of Nethereum by Gluwa</Description>
+    <PackageId>Gluwal.Nethereum.Npgsql.EntityFramework.Core</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Nethereum.Util" Version="4.20.0" />
