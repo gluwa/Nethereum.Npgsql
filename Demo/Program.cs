@@ -27,7 +27,7 @@ var scope = serviceProvider.CreateScope();
 var numberContext = scope.ServiceProvider.GetRequiredService<NumberContext>();
 
 var numbers = new List<BigDecimal>();
-for(var i = 0 ; i < 76; i++) {
+for(var i = 0 ; i < 1001; i++) {
 
     BigDecimal number;
     if (i == 0)
@@ -51,7 +51,7 @@ var toAdd = numbers.Select(t => new Number {
 await numberContext.Numbers.ExecuteDeleteAsync();
 
 // batch a certain amount of records at once.
-var pager = 50;
+var pager = 5;
 var numberOfPages = toAdd.Count/pager + (toAdd.Count%pager == 0 ? 0 : 1);
 for(var i = 0 ; i < numberOfPages; i++) {
     var subset = toAdd.Skip(i*pager).Take(pager).ToList();
