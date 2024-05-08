@@ -16,6 +16,8 @@ namespace Nethereum.Npgsql.EntityFrameworkCore;
 /// </summary>
 public class NpgsqlBigDecimalTypeMapping : NpgsqlTypeMapping
 {
+
+    public static MethodInfo BigDecimalParseMethod = typeof(BigDecimal).GetMethod(nameof(BigDecimal.Parse), BindingFlags.Static | BindingFlags.Public)!;
     private const string DecimalFormatConst = "{0:0.0###########################}";
 
     /// <summary>
@@ -92,8 +94,7 @@ public class NpgsqlBigDecimalTypeMapping : NpgsqlTypeMapping
     {
         var bigDecimalValue = (BigDecimal)value;
         var stringValue = $"{bigDecimalValue}";
-        var parseMethod = typeof(BigDecimal).GetMethod(nameof(BigDecimal.Parse), BindingFlags.Static | BindingFlags.Public);
-        var expression = ConstantCall(parseMethod, stringValue);
+        var expression = ConstantCall(BigDecimalParseMethod, stringValue);
         return expression;
     }
 }
