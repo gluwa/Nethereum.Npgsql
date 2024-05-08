@@ -3,6 +3,7 @@ using System;
 using Demo.Api.Dal;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nethereum.Util;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -12,9 +13,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Demo.Api.Migrations
 {
     [DbContext(typeof(NumberContext))]
-    partial class NumberContextModelSnapshot : ModelSnapshot
+    [Migration("20240508193043_DefaultValueBigDecimal")]
+    partial class DefaultValueBigDecimal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
