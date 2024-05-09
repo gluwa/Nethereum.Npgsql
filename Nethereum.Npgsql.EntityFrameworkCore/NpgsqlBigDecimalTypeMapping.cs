@@ -1,3 +1,5 @@
+using System.Linq.Expressions;
+using System.Reflection;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Json;
 using Nethereum.Util;
@@ -14,6 +16,8 @@ namespace Nethereum.Npgsql.EntityFrameworkCore;
 /// </summary>
 public class NpgsqlBigDecimalTypeMapping : NpgsqlTypeMapping
 {
+
+    public static MethodInfo BigDecimalParseMethod = typeof(BigDecimal).GetMethod(nameof(BigDecimal.Parse), BindingFlags.Static | BindingFlags.Public)!;
     private const string DecimalFormatConst = "{0:0.0###########################}";
 
     /// <summary>
@@ -82,4 +86,15 @@ public class NpgsqlBigDecimalTypeMapping : NpgsqlTypeMapping
     /// </summary>
     protected override string SqlLiteralFormatString
         => DecimalFormatConst;
+
+    internal static MethodCallExpression ConstantCall(MethodInfo method, params object[] parameters)
+        => Expression.Call(method, parameters.Select(p => Expression.Constant(p)).ToArray());
+
+    public override Expression GenerateCodeLiteral(object value)
+    {
+        var bigDecimalValue = (BigDecimal)value;
+        var stringValue = $"{bigDecimalValue}";
+        var expression = ConstantCall(BigDecimalParseMethod, stringValue);
+        return expression;
+    }
 }
