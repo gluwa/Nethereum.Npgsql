@@ -9,6 +9,7 @@ using Demo.Dal;
 
 var configurationBuilder = new ConfigurationBuilder();
 configurationBuilder.AddUserSecrets("c87cdc73-d8a1-4ee9-b28d-073d4699d58d");
+configurationBuilder.AddEnvironmentVariables("DEMO_");
 var configuration = configurationBuilder.Build();
 
 var connectionString = configuration["ConnectionString"];
@@ -48,6 +49,7 @@ var toAdd = numbers.Select(t => new Number {
     LargeNumber = t
 }).ToList();
 
+await numberContext.Database.EnsureCreatedAsync();
 await numberContext.Numbers.ExecuteDeleteAsync();
 
 // batch a certain amount of records at once.
@@ -59,7 +61,7 @@ for(var i = 0 ; i < numberOfPages; i++) {
     await numberContext.SaveChangesAsync();
 }
 
-var afterAdded = await numberContext.Numbers.ToListAsync();
+var afterAdded = await numberContext.Numbers.OrderBy(n => n.Id).ToListAsync();
 if (afterAdded.Count != numbers.Count)
     throw new Exception("Did not add the same amount of numbers");
 
@@ -71,15 +73,21 @@ for(var i = 0 ; i < numbers.Count; i++) {
 var connection = new NpgsqlConnection(connectionString);
 connection.Open();
 var command = connection.CreateCommand();
-command.CommandText = "SELECT * FROM numbers";
+command.CommandText = "SELECT * FROM numbers ORDER BY id";
 var reader = command.ExecuteReader();
 
 
+var adoIndex = 0;
 while(reader.Read())
 {
    var value = reader.GetFieldValue<BigDecimal>("large_number");
-   Console.WriteLine($"Id: {reader.GetInt64("id")}, Large Number: {value}");
+   if (value != numbers[adoIndex])
+       throw new Exception($"ADO read at index {adoIndex} ({value}) does not match {numbers[adoIndex]}");
+   adoIndex++;
 }
+if (adoIndex != numbers.Count)
+    throw new Exception($"ADO read {adoIndex} rows, expected {numbers.Count}");
+Console.WriteLine($"Demo OK: {numbers.Count} numbers (up to {numbers[^1].ToString().Length} chars) verified via EF and ADO on {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}, server {connection.PostgreSqlVersion}");
 
 reader.Close();
 connection.Close();
